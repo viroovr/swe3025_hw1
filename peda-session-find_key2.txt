@@ -1,2 +1,2 @@
-break check_key
+break *0x400621
 
