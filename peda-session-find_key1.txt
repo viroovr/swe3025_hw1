@@ -1,2 +1,6 @@
+break *0x400566
+break *0x40065e
+break main
 break check_key
+break *0x40065e
 

